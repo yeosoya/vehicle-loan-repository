@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoanCalculator">
+
+    <!-- Toolbar -->
+
+    <!-- Vehicle Price -->
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/materialToolbar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:title="Car Loan Calculator"
+        android:titleTextColor="@android:color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!-- Home button with arrow -->
+        <TextView
+            android:id="@+id/backBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:drawableStart="@drawable/ic_arrow_back"
+            android:drawablePadding="8dp"
+            android:focusable="true"
+            android:padding="8dp"
+            android:text="Home"
+            android:textColor="@color/colorOnSecondary"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+    </com.google.android.material.appbar.MaterialToolbar>
+
+    <EditText
+        android:id="@+id/vehiclePrice"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:hint="Vehicle Price (RM)"
+        android:inputType="numberDecimal"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/materialToolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Down Payment -->
+    <EditText
+        android:id="@+id/downPayment"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="16dp"
+        android:hint="Down Payment (RM)"
+        android:inputType="numberDecimal"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/vehiclePrice"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Loan Period -->
+    <EditText
+        android:id="@+id/loanPeriod"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="16dp"
+        android:hint="Loan Period (Years)"
+        android:inputType="number"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/downPayment"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Interest Rate -->
+    <EditText
+        android:id="@+id/interestRate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="16dp"
+        android:hint="Interest Rate (%) per year"
+        android:inputType="numberDecimal"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/loanPeriod"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Calculate Button -->
+    <Button
+        android:id="@+id/btnCalculate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:text="Calculate"
+        app:layout_constraintTop_toBottomOf="@id/interestRate"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Result Card -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/resultCard"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="24dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="6dp"
+        android:background="@color/colorPrimary"
+        app:layout_constraintTop_toBottomOf="@id/btnCalculate"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <TableRow>
+                <TextView
+                    android:text="Loan Amount:"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorOnBackground"
+                    android:layout_weight="1"/>
+                <TextView
+                    android:id="@+id/loanAmountText"
+                    android:text="—"
+                    android:textColor="@color/colorOnBackground"
+                    android:gravity="end"
+                    android:layout_weight="1"/>
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:text="Monthly Payment:"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorOnBackground"
+                    android:layout_weight="1"/>
+                <TextView
+                    android:id="@+id/monthlyPaymentText"
+                    android:text="—"
+                    android:textColor="@color/colorOnBackground"
+                    android:gravity="end"
+                    android:layout_weight="1"/>
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:text="Total Interest:"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorOnBackground"
+                    android:layout_weight="1"/>
+                <TextView
+                    android:id="@+id/totalInterestText"
+                    android:text="—"
+                    android:textColor="@color/colorOnBackground"
+                    android:gravity="end"
+                    android:layout_weight="1"/>
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:text="Total Payment:"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorOnBackground"
+                    android:layout_weight="1"/>
+                <TextView
+                    android:id="@+id/totalPaymentText"
+                    android:text="—"
+                    android:textColor="@color/colorOnBackground"
+                    android:gravity="end"
+                    android:layout_weight="1"/>
+            </TableRow>
+
+        </TableLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
