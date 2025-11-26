@@ -38,7 +38,7 @@ public class AboutUs extends AppCompatActivity {
         TextView loanText = findViewById(R.id.textView32);
 
         loanText.setOnClickListener(v -> {
-            String url = "https://github.com/YourRepoLinkHere";
+            String url = "https://github.com/yeosoya/vehicle-loan-repository/tree/main/app/src";
             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
             startActivity(intent);
         });
