@@ -7,7 +7,7 @@ This assignment evaluates students on:
 INSTRUCTIONS: 
 1. Develop a mobile application for estimating monthly vehicle loan payments.
    
-2.The inputs expected for the application are: 
+2. The inputs expected for the application are: 
 i. Vehicle Price (RM) 
 ii. Down Payment (RM)
 iii. Loan Period (Years) 
