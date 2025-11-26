@@ -7,10 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".LoanCalculator">
 
-    <!-- Toolbar -->
-
-    <!-- Vehicle Price -->
-
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/materialToolbar"
         android:layout_width="0dp"
@@ -40,6 +36,7 @@
             android:textStyle="bold" />
     </com.google.android.material.appbar.MaterialToolbar>
 
+    <!-- vehicle price -->
     <EditText
         android:id="@+id/vehiclePrice"
         android:layout_width="0dp"
