@@ -69,5 +69,32 @@ public class LoanCalculator extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    private void calculateLoan() {
+        try {
+            //read input
+            double price = Double.parseDouble(vehiclePrice.getText().toString());
+            double down = Double.parseDouble(downPayment.getText().toString());
+            int years = Integer.parseInt(loanPeriod.getText().toString());
+            double rate = Double.parseDouble(interestRate.getText().toString());
 
+            //apply formula
+            double loanAmount = price - down;
+            double totalInterest = loanAmount * (rate / 100) * years;
+            double totalPayment = loanAmount + totalInterest;
+            double monthlyPayment = totalPayment / (years * 12);
+
+            //update table rows
+            TextView loanAmountText = findViewById(R.id.loanAmountText);
+            TextView monthlyPaymentText = findViewById(R.id.monthlyPaymentText);
+            TextView totalInterestText = findViewById(R.id.totalInterestText);
+            TextView totalPaymentText = findViewById(R.id.totalPaymentText);
+
+            loanAmountText.setText(String.format("RM %.2f", loanAmount));
+            monthlyPaymentText.setText(String.format("RM %.2f", monthlyPayment));
+            totalInterestText.setText(String.format("RM %.2f", totalInterest));
+            totalPaymentText.setText(String.format("RM %.2f", totalPayment));
+        } catch (NumberFormatException e) {
+            Toast.makeText(this, "Please enter valid numbers in all fields", Toast.LENGTH_SHORT).show();
+        }
+    }
 }
