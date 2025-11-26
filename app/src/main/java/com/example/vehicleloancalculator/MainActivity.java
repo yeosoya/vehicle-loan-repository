@@ -16,13 +16,7 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
-        //get started button
-        Button btnStart = findViewById(R.id.btnStart);
 
-        btnStart.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, LoanCalculator.class);
-            startActivity(intent);
-        });
     }
 
         @Override
