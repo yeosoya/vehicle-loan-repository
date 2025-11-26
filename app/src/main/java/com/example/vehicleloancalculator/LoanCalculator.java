@@ -57,17 +57,7 @@ public class LoanCalculator extends AppCompatActivity {
         return true;
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item){
-        int id = item.getItemId();
 
-         if (id == R.id.action_about) {
-            Intent intent = new Intent(LoanCalculator.this, AboutUs.class);
-            startActivity(intent);
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
 
     private void calculateLoan() {
         try {
